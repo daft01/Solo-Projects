@@ -25,6 +25,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -93,16 +98,55 @@ public class SignIn extends AppCompatActivity {
 
     private void updateUI() {
 
-        //String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
+        database.child("Users")
+                .child("Female")
+                .child(userID) // Create a reference to the child node directly
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This callback will fire even if the node doesn't exist, so now check for existence
+                        if (dataSnapshot.exists()) {
+                            Toast.makeText(getApplicationContext(), "You're logged in", Toast.LENGTH_LONG).show();
+                            Intent accountIntent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(accountIntent);
+                            finish();
+                        } else {
+                            System.out.println("The node does not exist.");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) { }
+                });
+
+        database.child("Users")
+                .child("Male")
+                .child(userID) // Create a reference to the child node directly
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // This callback will fire even if the node doesn't exist, so now check for existence
+                        if (dataSnapshot.exists()) {
+                            Toast.makeText(getApplicationContext(), "You're logged in", Toast.LENGTH_LONG).show();
+                            Intent accountIntent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(accountIntent);
+                            finish();
+                        } else {
+                            System.out.println("The node does not exist.");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) { }
+                });
 
         Toast.makeText(getApplicationContext(), "You're logged in", Toast.LENGTH_LONG).show();
-
-
-
-        Intent accountIntent = new Intent(getApplicationContext(), MainActivity.class);
+        Intent accountIntent = new Intent(getApplicationContext(), NewUser.class);
         startActivity(accountIntent);
-        finish();
     }
 
 
