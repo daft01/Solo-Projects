@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "365148019644",
+    "firebase_url": "https://amore-504da.firebaseio.com",
+    "project_id": "amore-504da",
+    "storage_bucket": "amore-504da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365148019644:android:08df6474145c29fa",
+        "android_client_info": {
+          "package_name": "com.example.danielmorales.amore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "365148019644-t2mut8dbndo9pqdtmn7oqslo1nsio7oj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.danielmorales.amore",
+            "certificate_hash": "d40f100a7ad517fb9d75364778092d03fb5429e0"
+          }
+        },
+        {
+          "client_id": "365148019644-3u7ks9n97vc2d9t20398q6pbqmv2m91v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQJdzhA2uGXTlQPAJ0HA3tVY4phzvhGVE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "365148019644-3u7ks9n97vc2d9t20398q6pbqmv2m91v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
